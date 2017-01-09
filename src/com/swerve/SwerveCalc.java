@@ -2,11 +2,30 @@ package com.swerve;
 
 import java.util.Arrays;
 
+/**
+ * SwerveCalc is based on model found at https://www.chiefdelphi.com/media/papers/2426
+ * Given stick input identify needed relative speed and angle for each drive unit.
+ */
 public class SwerveCalc {
 	
 	private static double  LENGTH_INCHES = 30.0;
 	private static double WIDTH_INCHES = 24.0;
 	
+	/**
+	 * Given forward, left/right and rotational clockwise speeds return an array of doubles matching:
+	 * WS1 (front right wheel speed command, 0 to +1)
+	 * WS2 (front left wheel speed command, 0 to +1)
+	 * WS3 (rear left wheel speed command, 0 to +1)
+	 * WS4 (rear right wheel speed command, 0 to +1)
+	 * WA1 (front right clockwise angle, degrees)
+	 * WA2 (front left clockwise angle, degrees)
+	 * WA3 (rear left clockwise angle, degrees)
+	 * WA4 (rear right clockwise angle, degrees)
+	 * @param fwd	-1.0 to 1.0, forward to reverse velocity
+	 * @param str	-1.0 to 1.0, left to right velocity
+	 * @param rcw	-1.0 to 1.0, clockwise rotational velocity
+	 * @return		Array of Doubles matching ws1-ws4 and wa1-wa4
+	 */
 	public static Double[] calc(double fwd, double str, double rcw){
 		if(Math.abs(fwd)>1.0 || Math.abs(str)>1.0 || Math.abs(rcw)>1.0){
 			return null;
