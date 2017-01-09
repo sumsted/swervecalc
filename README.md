@@ -1,6 +1,6 @@
 Created from the swerve model spreadsheet on https://www.chiefdelphi.com/media/papers/2426
 
-Returns array of 8 Doubles where the first four values correspond to motor speed and second four values to drive angle
+Returns array of 8 doubles where the first four values correspond to motor speed and second four values to drive angle
 
 	WS1 (front right wheel speed command, 0 to +1)
 	WS2 (front left wheel speed command, 0 to +1)

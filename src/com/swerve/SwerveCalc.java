@@ -24,14 +24,14 @@ public class SwerveCalc {
 	 * @param fwd	-1.0 to 1.0, forward to reverse velocity
 	 * @param str	-1.0 to 1.0, left to right velocity
 	 * @param rcw	-1.0 to 1.0, clockwise rotational velocity
-	 * @return		Array of Doubles matching ws1-ws4 and wa1-wa4
+	 * @return		Array of doubles matching ws1-ws4 and wa1-wa4
 	 */
-	public static Double[] calc(double fwd, double str, double rcw){
+	public static double[] calc(double fwd, double str, double rcw){
 		if(Math.abs(fwd)>1.0 || Math.abs(str)>1.0 || Math.abs(rcw)>1.0){
 			return null;
 		}
 		
-		Double result[] = new Double[8];
+		double result[] = new double[8];
 		
 		double r = Math.sqrt(Math.pow(SwerveCalc.LENGTH_INCHES,2) + Math.pow(SwerveCalc.WIDTH_INCHES,2));
 		
@@ -85,7 +85,7 @@ public class SwerveCalc {
 		double str = 0.2;
 		double rcw = 0.1;
 		
-		Double result[] = SwerveCalc.calc(fwd, str, rcw);
+		double result[] = SwerveCalc.calc(fwd, str, rcw);
 		System.out.println(Arrays.toString(result));
 	}
 	
