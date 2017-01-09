@@ -8,8 +8,8 @@ import java.util.Arrays;
  */
 public class SwerveCalc {
 	
-	private static double  LENGTH_INCHES = 30.0;
-	private static double WIDTH_INCHES = 24.0;
+	public static final double LENGTH_INCHES = 30.0;
+	public static final double WIDTH_INCHES = 24.0;
 	
 	/**
 	 * Given forward, left/right and rotational clockwise speeds return an array of doubles matching:
