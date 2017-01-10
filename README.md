@@ -5,6 +5,7 @@ Returns array of 8 doubles where the first four values correspond to motor speed
 	WS1 (front right wheel speed command, 0 to +1)
 	WS2 (front left wheel speed command, 0 to +1)
 	WS3 (rear left wheel speed command, 0 to +1)
+	
 	WS4 (rear right wheel speed command, 0 to +1)
 	WA1 (front right clockwise angle, degrees)
 	WA2 (front left clockwise angle, degrees)

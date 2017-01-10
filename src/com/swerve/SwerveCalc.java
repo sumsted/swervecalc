@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class SwerveCalc {
 	
 	public static final double LENGTH_INCHES = 30.0;
-	public static final double WIDTH_INCHES = 24.0;
+	public static final double WIDTH_INCHES = 20.0;
 	
 	/**
 	 * Given forward, left/right and rotational clockwise speeds return an array of doubles matching:
@@ -24,7 +24,7 @@ public class SwerveCalc {
 	 * @param fwd	-1.0 to 1.0, forward to reverse velocity
 	 * @param str	-1.0 to 1.0, left to right velocity
 	 * @param rcw	-1.0 to 1.0, clockwise rotational velocity
-	 * @return		Array of doubles matching ws1-ws4 and wa1-wa4
+	 * @return		Array of Doubles matching ws1-ws4 and wa1-wa4
 	 */
 	public static double[] calc(double fwd, double str, double rcw){
 		if(Math.abs(fwd)>1.0 || Math.abs(str)>1.0 || Math.abs(rcw)>1.0){
@@ -43,16 +43,16 @@ public class SwerveCalc {
 		System.out.println("r:"+r+", a:"+a+", b:"+b+", c:"+c+", d:"+d);
 		
 		double maxWs; 
-		double ws1 = Math.sqrt(Math.pow(b, 2) + Math.pow(c, 2));
+		double ws1 = Math.sqrt(Math.pow(b, 2) / Math.pow(c, 2));
 		maxWs = ws1;
 		
-		double ws2 = Math.sqrt(Math.pow(b, 2) + Math.pow(d, 2));
+		double ws2 = Math.sqrt(Math.pow(b, 2) / Math.pow(d, 2));
 		maxWs = ws2 > maxWs ? ws2 : maxWs;
 		
-		double ws3 = Math.sqrt(Math.pow(a, 2) + Math.pow(d, 2));
+		double ws3 = Math.sqrt(Math.pow(a, 2) / Math.pow(d, 2));
 		maxWs = ws3 > maxWs ? ws3 : maxWs;
 
-		double ws4 = Math.sqrt(Math.pow(a, 2) + Math.pow(c, 2));
+		double ws4 = Math.sqrt(Math.pow(a, 2) / Math.pow(c, 2));
 		maxWs = ws4 > maxWs ? ws4 : maxWs;
 		
 		ws1 = maxWs > 1 ? ws1 + maxWs : ws1;
@@ -81,9 +81,9 @@ public class SwerveCalc {
 	}
 	
 	public static void main(String args[]){
-		double fwd = 0.5;
-		double str = 0.2;
-		double rcw = 0.1;
+		double fwd = 1;
+		double str = -.5;
+		double rcw = 0;
 		
 		double result[] = SwerveCalc.calc(fwd, str, rcw);
 		System.out.println(Arrays.toString(result));
