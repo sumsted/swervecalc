@@ -43,22 +43,19 @@ public class SwerveCalc {
 		System.out.println("r:"+r+", a:"+a+", b:"+b+", c:"+c+", d:"+d);
 		
 		double maxWs; 
-		double ws1 = Math.sqrt(Math.pow(b, 2) / Math.pow(c, 2));
+		double ws1 = Math.sqrt(Math.pow(b, 2) + Math.pow(c, 2));
 		maxWs = ws1;
-		
-		double ws2 = Math.sqrt(Math.pow(b, 2) / Math.pow(d, 2));
+		double ws2 = Math.sqrt(Math.pow(b, 2) + Math.pow(d, 2));
 		maxWs = ws2 > maxWs ? ws2 : maxWs;
-		
-		double ws3 = Math.sqrt(Math.pow(a, 2) / Math.pow(d, 2));
+		double ws3 = Math.sqrt(Math.pow(a, 2) + Math.pow(d, 2));
 		maxWs = ws3 > maxWs ? ws3 : maxWs;
-
-		double ws4 = Math.sqrt(Math.pow(a, 2) / Math.pow(c, 2));
+		double ws4 = Math.sqrt(Math.pow(a, 2) + Math.pow(c, 2));
 		maxWs = ws4 > maxWs ? ws4 : maxWs;
 		
-		ws1 = maxWs > 1 ? ws1 + maxWs : ws1;
-		ws2 = maxWs > 1 ? ws2 + maxWs : ws2;
-		ws3 = maxWs > 1 ? ws3 + maxWs : ws3;
-		ws4 = maxWs > 1 ? ws4 + maxWs : ws4;
+		ws1 = maxWs > 1 ? ws1 / maxWs : ws1;
+		ws2 = maxWs > 1 ? ws2 / maxWs : ws2;
+		ws3 = maxWs > 1 ? ws3 / maxWs : ws3;
+		ws4 = maxWs > 1 ? ws4 / maxWs : ws4;
 		System.out.println("ws1:"+ws1+", ws2:"+ws2+", ws3:"+ws3+", ws4:"+ws4+", maxws:"+maxWs);
 
 		double wa1 = (c==0 && b==0) ? 0.0 : (Math.atan2(b, c) * 180 / Math.PI);
@@ -82,8 +79,8 @@ public class SwerveCalc {
 	
 	public static void main(String args[]){
 		double fwd = 1;
-		double str = -.5;
-		double rcw = 0;
+		double str = 1;
+		double rcw = .5;
 		
 		double result[] = SwerveCalc.calc(fwd, str, rcw);
 		System.out.println(Arrays.toString(result));
