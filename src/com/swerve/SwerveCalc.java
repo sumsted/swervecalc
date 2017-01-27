@@ -77,6 +77,7 @@ public class SwerveCalc {
 		return result;
 	}
 	
+	
 	public static void main(String args[]){
 		double fwd = 1;
 		double str = 1;
